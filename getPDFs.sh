@@ -18,5 +18,5 @@ array=( "${array[@]/%/$file_ext}" )
 
 for i in "${array[@]}"
     do
-        echo $i >> pdf.lst
+        echo $i >> pdfs/pdf.lst
     done
