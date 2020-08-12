@@ -39,7 +39,7 @@ def text_extractor(pdf_path):
 def merger(output_path, input_paths):
     pdf_writer = PdfFileWriter()
 
-    for path in input_paths:
+    for path in input_paths[:1]:
         pdf_reader = PdfFileReader(path)
         for page in range(pdf_reader.getNumPages()):
             pdf_writer.addPage(pdf_reader.getPage(page))
@@ -49,6 +49,10 @@ def merger(output_path, input_paths):
 
 
 if __name__ == '__main__':
-    paths = glob.glob('*.pdf')
-    paths.sort()
-    merger('pdf_merger.pdf', paths)
+    #  paths = glob.glob('*.pdf')
+    #  paths.sort()
+    with open('../pdf.lst', 'r') as file:
+        pdf_lst = file.read().splitlines()
+
+    #  print(pdf_lst)
+    merger('pdf_merger.pdf', pdf_lst)
