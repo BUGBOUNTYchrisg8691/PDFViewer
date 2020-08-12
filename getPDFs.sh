@@ -11,6 +11,11 @@ file_ext=".pdf"
 
 array=( "${array[@]/%/$file_ext}" )
 
+# for i in "${array[@]}"
+    # do
+        # wget $i
+    # done
+
 for i in "${array[@]}"
     do
         echo $i >> pdf.lst
